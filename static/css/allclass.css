@@ -1,0 +1,152 @@
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+    padding: 15px;
+    margin: 0px 20px;
+  float: left;
+  border: 5px solid #7159c7;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right,#844deb 0%, #ba58ce 100%);
+  width: 25%;
+  height: 750px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: rgb(0, 0, 0);
+  /* padding: 22px 16px; */
+  font-size: 25px;
+  font-weight: 600;
+  height: 80px;
+  width: 100%;
+  border: none;
+  outline: none;
+
+  border-radius: 10px;
+
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #8e4df7;
+  border: 5px solid rgb(115, 65, 180);
+  border-radius: 10px;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: rgb(184, 167, 167);
+  
+  
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 3px solid #5386a3;
+  border-radius: 10px;
+  width: 70%;
+  height: 750px;
+}
+.click{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: rgb(75, 31, 158)
+}
+.btun{
+    /* padding: 20px; */
+    margin: 20px;
+    width: 250px;
+    height: 180px;
+    color: #3918af;
+    border: none;
+    font-size: 22px;
+    /* border-radius: 10px; */
+    /* display: block   ; */
+}
+.class_1{
+    font-size: 30px;
+    font-weight: 550;
+    text-align: center;
+    color: black;
+}
+.btun img{
+height: 180px;
+width: 280px;
+border: 3px solid  #5136b1;
+border-radius: 10px;
+}
+
+/* Style the tab_new */
+.tab_new {
+    padding: 15px;
+    margin: 0px 20px;
+  float: left;
+  border: 5px solid #7159c7;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right,#844deb 0%, #ba58ce 100%);
+  width: 25%;
+  height: 750px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab_new button {
+  display: block;
+  background-color: inherit;
+  color: rgb(0, 0, 0);
+  /* padding: 22px 16px; */
+  font-size: 25px;
+  font-weight: 500;
+  height: 80px;
+  width: 100%;
+  border: none;
+  outline: none;
+
+  border-radius: 10px;
+
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* Change background color of buttons on hover
+
+/* Create an active/current "tab button" class */
+#defaultOpen {
+  border: solid rgb(118, 61, 182) 4px;
+  border-radius: 5px;
+  background-color: rgb(184, 167, 167);
+  
+  
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 3px solid #5386a3;
+  border-radius: 10px;
+  width: 70%;
+  height: 750px;
+}
+.Chapter_new{
+  padding: 20px;
+}
+.btun_new{
+  /* padding: 20px; */
+  margin: 20px;
+  width: 150px;
+  height: 80px;
+  color: #3918af;
+  background-color: rgb(161, 228, 206);
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 22px;
+}
