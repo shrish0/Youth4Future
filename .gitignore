@@ -1,1 +1,5 @@
-/bot/function/
+/bot/function/website.py
+
+/bot/function/email.py
+
+/bot/function/chatgpt.py
