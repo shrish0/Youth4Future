@@ -3,3 +3,6 @@
 /bot/function/email.py
 
 /bot/function/chatgpt.py
+
+#disabling .env to being uploading
+.env
