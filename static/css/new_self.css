@@ -1,0 +1,18 @@
+.newbtn{
+    display: block;
+    margin: 0 auto; 
+    text-align: center;
+    padding:5px;
+    border: solid black 2px;
+    border-radius: 10px;
+    background-color: rgb(169, 104, 230);
+    color: rgb(250, 250, 250);
+    
+}
+.useless{
+    height: 800px;
+}
+
+.logoedu{
+    color: white;
+}
