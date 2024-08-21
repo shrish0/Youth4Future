@@ -24,17 +24,17 @@ def login(request):
         else:
             messages.info(request,"Invalid Credential")
             return redirect("login")
-    return render(request,"login.html")
+    return render(request,"account/login.html")
 
 def register(request):
     if request.method == "POST":
         form = SignupForm(request.POST)  # Assign the form instantiation to a variable
         if form.is_valid():
             form.save()
-            return render(request, "login.html")
+            return render(request, "account/login.html")
     else:
         form = SignupForm()
-    return render(request, "signup.html", {'form': form})
+    return render(request, "account/signup.html", {'form': form})
     
 # def register(request):
 #     if request.method == "POST" :

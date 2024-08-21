@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'logo.jpg' %}" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        .banner_main {
+            min-height: 100vh;
+            background: url("{% static 'img/login/bg-01.jpg' %}") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        }
+        form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-group {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .form-group.full-width {
+            width: 100%;
+        }
+        .form-control {
+            background-color: rgba(28, 22, 22, 0.07);
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        .form-control::placeholder {
+            color: #999;
+        }
+        .form-check-label {
+            font-weight: 500;
+            color: #333;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #fc00ff, #00dbde);
+        }
+        .pop-up {
+            margin-top: 20px;
+            color: red;
+            text-align: center;
+        }
+        @media (max-width: 576px) {
+            .form-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="banner_main">
+        <form action="signup" method="POST" class="login100-form">
+            {% csrf_token %}
+            <h3>Sign up Here</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone">
+                </div>
+                <div class="form-group">
+                    <label for="password1">Password:</label>
+                    <input type="password" id="password1" name="password1" class="form-control" placeholder="Enter Password">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password:</label>
+                    <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password">
+                </div>
+                <div class="form-group full-width">
+                    <label for="disability">Disability:</label>
+                    <select id="disability" name="disability" class="form-control">
+                        <option value="blind">Blind</option>
+                        <option value="handicapped">Handicapped</option>
+                        <option value="mute">Mute</option>
+                        <option value="deaf">Deaf</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" onclick="pval()">Submit</button>
+
+            <p style="text-align: center; margin-top: 10px;">
+                Already have an account? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/account/login" style="color: #000; text-decoration: none;">Login here</a>
+            </p>
+
+            <div class="pop-up">
+                <ul id="errorlist"></ul>
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+        </form>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function pval() {
+            let p1 = document.getElementById("password1").value;
+            let p2 = document.getElementById("password2").value;
+            if (p1 !== p2) {
+                document.getElementById("errorlist").innerHTML = "<li>Passwords do not match</li>";
+            }
+        }
+    </script>
+</body>
+</html>
