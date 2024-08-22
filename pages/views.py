@@ -30,4 +30,12 @@ def subject_detail(request):
     return render(request,"pages\subject_details.html")
 
 def FaQ(request):
-    return render(request, 'pages\FaQ.html')
+    qna_data = [
+        {"question": "Where can I find the bot?", "answer": "You can find it on our site under downloads."},
+        {"question": "How do I install the app?", "answer": "You can download the installer from our website and follow the installation instructions."},
+        {"question": "Can a normal person also use this site ", "answer": "Yes ,anyone can acess it but for the specially abled bot is given."},
+        {"question": "What Type of courses offer", "answer": "Generally of class 10 , 12 and some coding language"},
+        {"question": "Future plan ", "answer": "Generally of class 10 , 12 and some coding language"},
+        # Add more Q&A pairs as needed
+    ]
+    return render(request, 'pages\FaQ.html', {'qna_data': qna_data})

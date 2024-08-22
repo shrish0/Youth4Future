@@ -1,6 +1,294 @@
-<h1>courses page</h1>
+{% extends '_partialViews/_base.html' %}
+{% load static %}
+{% block content %}
+
 <style>
-    #courses{
-        color:black;
-    }
+  #courses{
+      color:black;
+      pointer-events: none;
+  }
 </style>
+
+  <!-- ================ start banner Area ================= -->
+  <section class="banner-area">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-12 banner-right">
+            <h1 class="text-white">
+              Courses
+            </h1>
+            <div class="link-nav">
+              <span class="box">
+                <a href="index.html">Home </a>
+                <i class="lnr lnr-arrow-right"></i>
+                <a href="courses.html">Courses</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- ================ End banner Area ================= -->
+
+  <!-- ================ Start Popular Course Area ================= -->
+  <section class="popular-course-area section-gap">
+    <div class="container-fluid">
+      <div class="row justify-content-center section-title">
+        <div class="col-lg-12">
+          <h2>
+            Popular Courses <br />
+          </h2>
+          <p>
+            All the courses are Available here at no cost for Everyone without any limits.
+        </div>
+      </div>
+      <div class="owl-carousel popuar-course-carusel">
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img class="f-img img-fluid mx-auto" src="{% static 'img/popular-course/p1.jpg' %}" alt="" />
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">CBSE Course</p>
+           
+            </div>
+            <a href="course-details.html">
+              <h4>Class 12</h4>
+            </a>
+            <div class="bottom d-flex mt-15">
+              <ul class="list">
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img class="f-img img-fluid mx-auto" src="{% static 'img/popular-course/p2.jpg' %}" alt="" />
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">CBSE Course</p>
+            </div>
+            <a href="course-details.html">
+              <h4>Class 11</h4>
+            </a>
+            <div class="bottom d-flex mt-15">
+              <ul class="list">
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img class="f-img img-fluid mx-auto" src="{% static 'img/popular-course/p3.jpg' %}" alt="" />
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">CBSE Course</p>
+            </div>
+            <a href="course-details.html">
+              <h4>Class 10</h4>
+            </a>
+            <div class="bottom d-flex mt-15">
+              <ul class="list">
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-popular-course">
+          <div class="thumb">
+            <img class="f-img img-fluid mx-auto" src="{% static 'img/popular-course/p4.jpg' %}" alt="" />
+          </div>
+          <div class="details">
+            <div class="d-flex justify-content-between mb-20">
+              <p class="name">GOVEMENT EXAM</p>
+            </div>
+            <a href="course-details.html">
+              <h4>SSC CGL</h4>
+            </a>
+            <div class="bottom d-flex mt-15">
+              <ul class="list">
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="course-details.html"><i class="fa fa-star"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <a href="subject_details.html">
+  <div class="col-lg-12 text-center">
+    <button class="btn text-uppercase new_btn">view courses</button>
+    </div>
+  </a>
+
+  <!-- ================ End Popular Course Area ================= -->
+
+  <!-- ================ Start Registration Area ================= -->
+  
+  <!-- ================ End Registration Area ================= -->
+
+  <!-- ================ Start Feature Area ================= -->
+  <section class="other-feature-area">
+      <div class="container">
+        <div class="feature-inner row">
+          <div class="col-lg-12">
+            <div class="section-title text-left">
+              <h2>
+                Features That <br />
+                Can access anyone
+              </h2>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="other-feature-item">
+              <i class="ti-key"></i>
+              <h4>Lifetime Access</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt--160">
+            <div class="other-feature-item">
+              <i class="ti-files"></i>
+              <h4>Voice Bot enable</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt--260">
+            <div class="other-feature-item">
+              <i class="ti-medall-alt"></i>
+              <h4>Student Mentorship</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="other-feature-item">
+              <i class="ti-briefcase"></i>
+              <h4>350+ Courses</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt--160">
+            <div class="other-feature-item">
+              <i class="ti-crown"></i>
+              <h4>Expert Mentors</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt--260">
+            <div class="other-feature-item">
+              <i class="ti-headphone-alt"></i>
+              <h4>Live Support for Physicaly abled Persons</h4>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed
+                  do eiusmod tempor incididunt labore. Lorem ipsum dolor sit
+                  amet consec tetur adipisicing elit, sed do eiusmod tempor
+                  incididunt labore.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================ End Feature Area ================= -->
+{% endblock content %}

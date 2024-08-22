@@ -1,6 +1,70 @@
-<h1>Frequently asked question</h1>
-<style>
-    #FaQ{
-        color:black;
-    }
-</style>
+{% extends '_partialViews/_base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ================ start banner Area ================= -->
+    <section class="banner-area">
+        <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-12 banner-right">
+            <h1 class="text-white">
+                Frequently Asked Question
+            </h1>
+           
+            <div class="link-nav">
+                <span class="box">
+                <a href="index.html">Home </a>
+                <i class="lnr lnr-arrow-right"></i>
+                <a href="about.html">About</a>
+                </span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- ================ End banner Area ================= -->
+
+    <div class="container mt-5 mb-5 col-lg-12">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mt-5">
+                    {% for qna in qna_data %}
+                    <div class="card-header Ques">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>{{ qna.question }}</span>
+                            <!-- Button to toggle answer -->
+                            <button class="toggleButton" onclick="toggleAnswer({{ forloop.counter }})">
+                                <img src="{% static 'svg-d/arrow-down-short.svg' %}" id="img{{ forloop.counter }}">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Answer -->
+                    <div class="answer{{ forloop.counter }} answer" >
+                        <div class="card-body">
+                            <p class="card-text">{{ qna.answer }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        function toggleAnswer(questionNumber) {
+            var answer = document.querySelector(".answer" + questionNumber); // Select the answer associated with the given question number
+            var img = document.querySelector("#img" + questionNumber); // Select the image associated with the given question number
+            // Change image source URL based on answer visibility
+            if (answer.style.maxHeight === "0px") {
+                img.src = "{% static 'svg-d/arrow-up-short.svg' %}"; // Change to the "up" arrow image
+            } else {
+                img.src = "{% static 'svg-d/arrow-down-short.svg' %}"; // Change to the "down" arrow image
+            }
+            answer.style.maxHeight = answer.style.maxHeight === "0px" ? "100px" : "0px"; // Toggle the display of the answer
+        }
+    </script>
+
+{% endblock content %}
