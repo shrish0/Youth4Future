@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
           <ul class="navbar-nav">
             {% if user.is_authenticated %}
-            <li><a href="http://127.0.0.1:8000/index" id="user" style="color:black">hello , {{request.user}}</a></li>
+            <li><a href="http://127.0.0.1:8000/index" id="user" style="color:#ffff00;">hello , {{request.user}}</a></li>
             {% endif %}
             
             <li class="{% if request.path == '/' %}active{% endif %}">
