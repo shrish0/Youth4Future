@@ -6,3 +6,5 @@
 
 #disabling .env to being uploading
 .env
+
+.sqlite3

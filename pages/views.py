@@ -58,3 +58,6 @@ def FaQ(request):
         # Add more Q&A pairs as needed
     ]
     return render(request, 'pages\FaQ.html', {'qna_data': qna_data})
+
+def subject(request):
+    return render(request, 'pages\subject.html')
