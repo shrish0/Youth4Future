@@ -1,1 +1,120 @@
-<h1>subject details</h1>
+{% extends '_partialViews/_base.html' %}
+
+{% load static %}
+{% block content %}
+
+<style>
+    #home {
+        color: #ffff00;
+        pointer-events: none;
+    }
+    .course-content {
+        display: flex;
+        flex-direction: row;
+        padding-top: 50px;
+        margin-left: 0; /* Set left margin to zero */
+    }
+    .sidebar {
+        width: 370px;
+        padding-right: 20px;
+        border-right: 1px solid #ddd;
+        background-color: #f8f9fa; /* Light background for sidebar */
+        padding-left: 0; /* Remove left padding */
+    }
+    .sidebar ul {
+        background: linear-gradient(to bottom right, #844deb 0%, #ba58ce 100%);
+        border-radius: 5px;
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar ul li {
+        padding: 10px;
+        margin: 5px;
+        border: 2px solid #007bff; /* Blue border to match links */
+        border-radius: 5px;
+        background-color: #ffffff; /* White background for list items */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+    .sidebar ul li:hover {
+        background-color: #f1f1f1; /* Light grey on hover */
+    }
+    .sidebar ul li a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #007bff;
+    }
+    .video-section {
+        width: 850px;
+        padding-left: 20px;
+    }
+    .video-section iframe {
+        width: 100%; /* Make iframe responsive */
+        height: 450px;
+        border: none;
+    }
+    .chapters li {
+        padding-left: 2px;
+        color: #007bff;
+    }
+    .course-content-area {
+        height: 600px;
+        width: 100%;
+    }
+    .notes {
+        margin-top: 20px;
+        color: #333; /* Darker color for the Notes heading */
+    }
+    .notes button {
+        background-color: #007bff; /* Blue button */
+        color: #ffffff; /* White text */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .notes button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+</style>
+
+<!-- ================ start banner Area ================= -->
+<div style="height:100px; width:100%; background-color: black;"></div>
+<!-- ================ End banner Area ================= -->
+
+<!-- ================ Start Course Content Area ================= -->
+<section class="course-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="course-content">
+                <!-- Sidebar for Chapters -->
+                <div class="sidebar">
+                    <h3>Chapters</h3>
+                    <ul class="chapters">
+                        <li><a href="#" onclick="loadVideo('https://www.youtube.com/embed/z8tYCbjeGKM?si=Di7XaltL51dX_iqO')"><h5>Chapter 1:</h5> Introduction</a></li>
+                        <li><a href="#" onclick="loadVideo('https://www.youtube.com/embed/v0ItwlP85Q4?si=8cJ9kLRgqi7yfSc1')"><h5>Chapter 2:</h5> Advanced Concepts</a></li>
+                        <li><a href="#" onclick="loadVideo('https://www.youtube.com/embed/gUWPoV-swmM?si=rbvr-LsmLma7Z5-h')"><h5>Chapter 3:</h5> Practical Application</a></li>
+                        <li><a href="#" onclick="loadVideo('https://www.youtube.com/embed/LGJ5KSl2AZg?si=uosiIIOfMO1IpITx')"><h5>Chapter 4:</h5> Review</a></li>
+                        <li><a href="#" onclick="loadVideo('https://www.youtube.com/embed/fC3TCQuJ10o?si=yIAyClV8EwDda_oj')"><h5>Chapter 5:</h5> End</a></li>
+                    </ul>
+                    
+                </div>
+                <!-- Video Section -->
+                <div class="video-section">
+                    <h3>Course Video</h3>
+                    <iframe id="course-video" src="https://www.youtube.com/embed/z8tYCbjeGKM?si=Di7XaltL51dX_iqO" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div style="height:300px; width:100%;"></div>
+<!-- ================ End Course Content Area ================= -->
+
+<script>
+    function loadVideo(url) {
+        document.getElementById('course-video').src = url;
+    }
+</script>
+
+{% endblock content %}
