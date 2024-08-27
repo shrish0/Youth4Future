@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render , redirect
 from .models import *
 # Create your views here.
+from django.http import JsonResponse
 from django.conf import settings
 from django.http import HttpResponse
 
@@ -9,9 +11,26 @@ def home(request):
     return render(request,"pages\index.html")
 
 
+# views.py
 
 def contacts(request):
-    return render(request,"pages\contacts.html")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        contact = ContactData(name=name, email=email, subject=subject, message=message)
+        contact.save()
+        
+        # Add a success message
+        messages.success(request, "Your message has been sent. Our team will contact you shortly.")
+        
+        # Redirect to the same page to show the message
+        return redirect('contacts')
+    
+    return render(request, "pages/contacts.html")
+
 
 
 def courses(request):
