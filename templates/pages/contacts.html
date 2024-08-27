@@ -9,107 +9,96 @@
     }
 </style>
 
-<!-- ================ start banner Area ================= -->
-<section class="banner-area">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-12 banner-right">
-                <h1 class="text-white">Contacts</h1>
-                <p class="mx-auto text-white mt-20 mb-40">
-                    In the history of modern astronomy, there is probably no one greater leap forward than the
-                    building.
-                </p>
-                <div class="link-nav">
-                    <span class="box">
-                        <a href="index">Home </a>
-                        <i class="lnr lnr-arrow-right"></i>
-                        <a href="contacts">Contacts</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ End banner Area ================= -->
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
 
-<!-- ================ Start contact-page Area  ================= -->
-<section class="contact-page-area section-gap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 d-flex flex-column address-wrap">
-                <div class="single-contact-address d-flex flex-row">
-                    <div class="icon">
-                        <span class="lnr lnr-home"></span>
-                    </div>
-                    <div class="contact-details">
-                        <h5>IMSEC, Ghaziabad</h5>
-                        <p>Adhyatmik Nagar, Near Dasna, Ghaziabad, UP</p>
-                    </div>
-                </div>
-                <div class="single-contact-address d-flex flex-row">
-                    <div class="icon">
-                        <span class="lnr lnr-phone-handset"></span>
-                    </div>
-                    <div class="contact-details">
-                        <h5>+91 7823478233</h5>
-                        <p>Mon to Fri 9am to 6 pm</p>
-                    </div>
-                </div>
-                <div class="single-contact-address d-flex flex-row">
-                    <div class="icon">
-                        <span class="lnr lnr-envelope"></span>
-                    </div>
-                    <div class="contact-details">
-                        <h5>Shrish69@google.com</h5>
-                        <p>Send us your Feedback anytime!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <form class="form-area contact-form text-right" id="myForm" action="{% url 'contacts' %}" method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-6 form-group">
-                            <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Enter your name'"
-                                class="common-input mb-20 form-control" required="" type="text">
-                            <input name="email" placeholder="Enter email address"
-                                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
-                                class="common-input mb-20 form-control" required="" type="email">
-                            <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
-                                required="" type="text">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <textarea class="common-textarea form-control" name="message"
-                                placeholder="Enter Feedback" onfocus="this.placeholder = ''"
-                                onblur="this.placeholder = 'Enter Feedback'" required=""></textarea>
-                        </div>
-                        <div class="col-lg-12 text-center">
-                            <button class="btn text-uppercase" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ End contact-page Area ================= -->
+	<!-- ================ start banner Area ================= -->
+	<section class="banner-area">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-lg-12 banner-right">
+					<h1 class="text-white">
+						Get in Touch
+					</h1>
+					<p class="mx-auto text-white  mt-40 mb-50" style="font-size: 17px;">
+						"Your abilities are not defined by your disabilities.<br> Education is the key that unlocks every door, and your courage to learn will inspire the world."
+					</p>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ================ End banner Area ================= -->
 
-{% endblock content %}
+	<!-- ================ Start contact-page Area  ================= -->
+	<section class="contact-page-area section-gap">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-4 d-flex flex-column address-wrap">
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-home"></span>
+						</div>
+						<div class="contact-details">
+							<h5>IMSEC, Ghaziabad</h5>
+							<p>
+								Adhyatmik Nagar, Near Dasna, Ghaziabad, UP
+							</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-phone-handset"></span>
+						</div>
+						<div class="contact-details">
+							<h5>+91 8449467433</h5>
+							<p>Mon to Fri 10:00 am to 5:00 pm</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-envelope"></span>
+						</div>
+						<div class="contact-details">
+							<h5>helpdesk@edufree.edu</h5>
+							<p>Send us your Feedback anytime!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<form class="form-area contact-form text-right" id="myForm" action="contact" method="post">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-lg-6 form-group">
+								<input name="name" placeholder="Enter your name " onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter your name'"
+									class="common-input mb-20 form-control" required="" type="text">
 
-<!-- Include Toastr CSS and JS from CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+								<input name="email" placeholder="Enter email address"
+									pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
+									class="common-input mb-20 form-control" required="" type="email">
 
-<script>
-    $(document).ready(function() {
-        {% if messages %}
-            {% for message in messages %}
-                toastr.success("{{ message }}");
-            {% endfor %}
-        {% endif %}
-    });
-</script>
+								<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
+									required="" type="text">
+							</div>
+							<div class="col-lg-6 form-group">
+								<textarea class="common-textarea form-control" name="message"
+									placeholder="Enter Feedback" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter Feedback'" required=""></textarea>
+							</div>
+							<div class="col-lg-12 text-center">
+								<button class="btn text-uppercase">Send Message</button>
+							  </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ================ End contact-page Area ================= -->
+
+	{% endblock content %}
