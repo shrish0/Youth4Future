@@ -1,0 +1,575 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Edu-Free</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <!-- Place favicon.ico in the root directory -->
+    
+        <!-- CSS here -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+        
+        <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+        
+        <style>
+            
+        /* Dropdown Button */
+
+        
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            background-color: rgb(220, 23, 23);
+        }
+        
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            background-color: black;
+        }
+        
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: rgb(17, 16, 16);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .w3-sidebar::-webkit-scrollbar {
+            width: 0;  /* Remove scrollbar space */
+            background: transparent;  /* Optional: make scrollbar track transparent */
+        }
+        
+        /* Style the dropdown button */
+        .drop{
+        
+            background: none;
+            color: white;
+        }
+        
+
+        #dropdown{
+            color:white;
+            position: absolute;
+            top: 46px;
+            left: 115px;
+        }
+
+
+        li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+        background-color: #111;
+        }
+
+
+        .message.sender {
+            text-align: right;
+            align-items: end;
+            color: #00ff00; /* Change color for sender */
+            background: linear-gradient(-225deg, #FFFDD0 0%, #FCF55F 48%, #F4C430 100%);
+            
+        }
+        .message.receiver {
+            text-align: left;
+            color: #ff0000; /* Change color for receiver */
+        }
+
+
+
+        /* Additional CSS styles for chat interface */
+
+        /* Message container styling */
+        #message-container {
+            overflow-y: auto; /* Enable vertical scrolling */
+            height: 80vh;/* Limit maximum height to prevent overflow */
+            padding: 10px;
+            position: relative;
+            border-radius: 10px; /* Add border radius */
+            margin-top: 10px 0px;
+        }
+
+        /* Message styling */
+        .message {
+            margin: 5px 0; /* Add margin between messages */
+            padding: 8px 12px; /* Add padding to messages */
+            border-radius: 15px; /* Add border radius to messages */ 
+            word-wrap: break-word;
+        }
+
+        /* Sender message styling */
+        .message.sender {
+            background-color: #04AA6D; /* Set background color for sender messages */
+            color: #fff; /* Set text color for sender messages */
+            align-self: flex-end; /* Align sender messages to the right */
+            width: 50%;
+            margin-left: 47%;
+            margin-right: 3%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Receiver message styling */
+        .message.receiver {
+            background-color: #eee; /* Set background color for receiver messages */
+            color: #333; /* Set text color for receiver messages */
+            align-self: flex-start; /* Align receiver messages to the left */
+            width: 50%;
+            margin-left: 3%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: #fff; /* Set background color */
+        }
+        #message-form{
+            width: 97%;
+            margin: 0px 8px;
+        }
+        /* Message input field styling */
+        #message-form input[type="text"] {
+            width: 80%; /* Set width of input field */
+            padding: 8px; /* Add padding */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Send button styling */
+        #message-form button {
+
+            border-radius: 5px; /* Add border radius */
+            background-color: #04AA6D; /* Set background color */
+            color: #fff; /* Set text color */
+            cursor: default; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s; /* Add transition effect for background color */
+        }
+
+        /* Send button hover effect */
+        #message-form button:hover {
+            background-color: #007B48; /* Darken background color on hover */
+        }
+
+
+
+        .form-container {
+            display: flex; /* Add flex display */
+            justify-content: flex-end; /* Align form items with space between them */
+            align-items: center; /* Center align form items vertically */
+
+            background-color: #fff; /* Set background color */
+            border-radius: 10px; /* Add border radius */
+            /* Add space between message container and form container */
+            height: 10%;
+            
+        /* Adjust max-width as needed */
+        }
+
+
+
+        form {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0px; /* Add margin-top for spacing */
+        }
+
+        input[type="text"] {
+            flex-grow: 1; /* Allow input to grow and take up remaining space */
+            padding: 10px; /* Add padding for better appearance */
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            align-items: end;
+        }
+        button[type="submit"] {
+            padding: 8px 20px; /* Add padding for better appearance */
+            border-radius: 25px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: default ;
+            border: none;
+            margin-left: 10px; /* Add margin-left for spacing */
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .nameup{
+            color: #111;
+        }
+        /* CSS for bottom tab */
+        .bottom_tab {
+            /* Enlarge the h1 */
+            margin-bottom: 0; /* Remove default margin */
+            position: fixed;
+            bottom: 0;
+            background: linear-gradient(to left, #5C758B, #273746); 
+                
+            width: 100%;
+            box-shadow: #FCF55F 2px 2px 2px;
+            border: solid black 3px;
+        }
+
+        /* Hide scrollbar UI */
+        #message-container::-webkit-scrollbar {
+            width: 0;  /* Remove scrollbar space */
+            background: transparent;  /* Optional: make scrollbar track transparent */
+        }
+
+        .chat{
+            color:gold;
+        }
+
+        /* Optional: hide scrollbar track */
+        #message-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Customize scrollbar thumb */
+        #message-container::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+
+
+        @media(max-width:576px)
+        {
+            .message.sender
+            {
+                width:80vw;
+                margin-left: 18%;
+            }
+            .message.receiver
+            {
+                width:80vw;
+            }
+            p{
+                font-size:12px;
+                line-height: 12px;
+            }
+            .message{
+                padding :0px 8px;
+            }
+        }
+
+
+        @media(min-width:576px)
+        {
+            #dropdown{
+                color:white;
+                position: absolute;
+                top: 11px;
+                left: 147px;
+            }
+        }
+
+        #mySidebar{
+            display:none; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: space-evenly;
+            background: linear-gradient(to right, #5C758B , #273746 ); 
+            color:azure; font:2em;  
+            overflow:auto; 
+            z-index:10000 
+        }
+        #mySidebar button{
+            position:absolute;
+            top:2px;
+            color :black;
+            font-weight:700;
+        }
+        a {
+            cursor: default;
+        }
+
+        #smore{
+            display:none;
+        }
+
+        #navigation{
+            display:flex;
+            justify-content:flex-end;
+        }
+
+        #more{
+            display: block;
+            background: transparent;
+            position: fixed;
+            right: 15px;
+            top:30px;
+            border:none;
+        }
+
+        #more img{
+            width: 33px;
+        }
+
+        @media  (max-width: 990px) {
+            /* For screen widths up to 768px */
+            #smore{
+                display: block;
+                background: transparent;
+                position: fixed;
+                right: 15px;
+                top:15px;
+                border:none;
+            }
+            #more{
+                display:none;
+            }
+            #smore img{
+                width: 33px;
+            }
+
+            #mySidebar{
+                width:390px;
+            }
+        }
+
+        @media (max-width:390px) {
+            #mySidebar{
+                width:100%;
+            }
+        }
+
+        #sticky-header{
+            background: linear-gradient(to right, #273746, #5C758B); 
+        }
+         </style>
+      </head>
+      <body style="background: #e7eaf6;" >
+   <!-- side bar -->
+   <div class="w3-sidebar w3-bar-block" id="mySidebar" >
+    <button onclick="w3_close()" class="w3-bar-item w3-button w3-large" >Close &times;</button>
+    <ul>
+    {% if user.is_authenticated %}
+        <li><a class="w3-bar-item w3-button " style="text-align: center;color:gold" href="http://{{DJANGO_SERVER_IP}}/profile.html">Hello,{{user}}</a></li>
+    {% endif %}
+
+    <li><a href="index.html" id="home">Home</a></li>
+    <li><a href="courses.html" id="course">Courses</a></li>
+    <li><a href="FaQ.html" id="FaQ">QnA</a></li>
+    <li><a href="blog.html" id="community">Community</a></li>
+    <li><a href="jobs.html" id="location">Place Finder</a></li>
+    <li><a href="http://{{DJANGO_SERVER_IP}}/contact.html" id="contact">Contact</a></li> 
+
+    
+              
+</ul>
+    
+ </div>
+       <!-- header-start -->
+        <header>
+            <div class="header-area " style="position:relative;">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid ">
+                        <div class="header_bottom_border">
+                            <div class="row align-items-center">
+                                <div class="col-xl-2 col-lg-2">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <img src="{% static 'img/logo.png' %}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8">
+                                    <div class="main-menu  d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li><a href="index.html" id="home">Home</a></li>
+                                                <li><a href="courses.html" id="course">Courses</a></li>
+                                                <li><a href="blog.html" id="community">Community</a></li>
+                                                <li><a href="contact.html" id="contact">Contact</a></li>                             
+                                                
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-2" >        
+                                    <button onclick="choiceB()" id="dropdownB" class="nav-link drop" style="z-index:10;">
+                                        Change  {{ group_number }} Club
+                                        <ul style="display:none;margin:5px;z-index:90;">
+                                            <li style="margin:14px 0px"> <a href="http://{{DJANGO_SERVER_IP}}/chat/farmer/">Farmer</a></li>
+                                            <li style="margin:14px 0px"> <a href="http://{{DJANGO_SERVER_IP}}/chat/small-retailer/">Retailer</a></li>
+                                            <li style="margin:14px 0px"> <a href="http://{{DJANGO_SERVER_IP}}/chat/global/">Global</a></li>
+                                        </ul>
+                                      </button>
+                                    <button id="more" onclick="w3_open('more')">
+                                        <img src="{% static "svg-d/list.svg" %}">
+                                    </button>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="mobile_menu d-block d-lg-none">
+                                        <button id="smore" onclick="w3_open('smore')">
+                                            <img src="{% static "svg-d/list.svg" %}">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header-end -->
+         <div class="message-container w3-container " id="message-container" style="height: 83vh;">
+            {% for message in messages %}
+                {% if message.sender.username == user.username %}
+                    <p class="message sender">
+                      <span style=" color: black;">
+                        {{ message.sender.username }} ({{ message.timestamp }}):</span>   <br> {{ message.content }}</p>
+                {% else %}
+                    <p class="message receiver">
+                        <span class="name_up" style=" color: grey;">
+                        {{ message.sender.username }}
+                     ({{ message.timestamp }}): </span> <br> {{ message.content }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+         <div class="form-container bottom_tab">
+            <form id="message-form" method="post" action="{% url 'send_message' group_number %}">
+                {% csrf_token %}
+                <input type="text" name="content" placeholder="Type your message here" required>
+                <button type="submit" z-index:1;>Send</button>
+            </form>
+        </div>
+        
+        
+        <script>
+          
+        </script>
+        
+        
+        
+        
+
+
+ <!-- end footer -->
+ <!-- Javascript files-->
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/popper.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+ <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+ <!-- sidebar -->
+ <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+ <script src="{% static 'js/custom.js' %}"></script>
+ 
+<script>
+      // Function to fetch new messages from the backend using AJAX
+      function fetchNewMessages() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `{% url 'get_messages' group_number %}`, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Data successfully fetched
+                    // Replace the existing messages with the new ones
+                    document.getElementById('message-container').innerHTML = xhr.responseText;
+                    // Scroll to the bottom to show the latest messages
+                    scrollToBottom();
+                } else {
+                    console.error('Error fetching new messages:', xhr.statusText);
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    // Fetch new messages every 30 seconds
+    setInterval(fetchNewMessages, 300); // Adjust the interval as needed
+
+    // Function to scroll to the bottom of the message container
+  
+    //navbar
+    function w3_open(a) {
+        document.getElementById("mySidebar").style.display = "flex";
+        document.getElementById(a).setAttribute("onclick", "w3_close()");
+        document.getElementById('smore').innerHTML = ` <img src="{% static 'svg-d/x-lg.svg' %}">`;
+        document.getElementById('more').innerHTML = ` <img src="{% static 'svg-d/x-lg.svg' %}">`;
+        console.log(getElementById(a))
+    }
+    
+    function w3_close() {
+     document.getElementById("mySidebar").style.display = "none";
+     document.getElementById('smore').setAttribute("onclick", "w3_open('smore')");
+     document.getElementById('more').setAttribute("onclick", "w3_open('more')");
+     
+     document.getElementById('more').innerHTML = ` <img src="{% static 'svg-d/list.svg' %}">`;
+     document.getElementById('smore').innerHTML = ` <img src="{% static 'svg-d/list.svg' %}">`;
+ }
+ 
+
+  function choice() {
+    let v1 = document.querySelector('#dropdown ul'); // Select the ul element inside the button
+    document.getElementById('dropdown').setAttribute("onclick", "choice2()");
+    document.getElementById('dropdown').style.background="black";
+    v1.style.display = 'block'; // Show the ul element
+    
+   }
+  
+   function choice2(){
+    let v1 = document.querySelector('#dropdown ul'); // Select the ul element inside the button
+    document.getElementById('dropdown').setAttribute("onclick", "choice()");
+    v1.style.display = 'none';
+    document.getElementById('dropdown').style.background="none";
+
+   }
+
+  function choiceB() {
+    let v1 = document.querySelector('#dropdownB ul'); // Select the ul element inside the button
+    document.getElementById('dropdownB').setAttribute("onclick", "choice2B()");
+    document.getElementById('dropdownB').style.background="black";
+    v1.style.display = 'block'; // Show the ul element
+    
+   }
+  
+   function choice2B(){
+    let v1 = document.querySelector('#dropdownB ul'); // Select the ul element inside the button
+    document.getElementById('dropdownB').setAttribute("onclick", "choiceB()");
+    v1.style.display = 'none';
+    document.getElementById('dropdownB').style.background="none";
+
+   }
+   </script>
+   
+</body>
+</html>
+

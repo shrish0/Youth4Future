@@ -1,0 +1,12 @@
+{% for message in messages %}
+{% if message.sender.username == user.username %}
+    <p class="message sender">
+        <span style="color:black;"> 
+        {{ message.sender.username }} ({{ message.timestamp }})</span>
+        <br> {{ message.content }}</p>
+{% else %}
+    <p class="message receiver">
+         <span class="name_up" style="color:grey;">{{ message.sender.username }} ({{ message.timestamp }}):
+    </span> <br> {{ message.content }}</p>
+{% endif %}
+{% endfor %}

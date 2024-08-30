@@ -1,0 +1,104 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Choose Group</title>
+        
+        <style>
+            body {
+                text-align: center;
+                font-family: 'Arial', sans-serif;
+                background-color: #EEDC82;
+                margin: 0;
+                padding: 0;
+            }
+            
+            h1 {
+                color: #000000;
+                font-size: 45px;
+            }
+            
+            .head2 {
+            color: black;
+            margin-bottom: 50px;
+            font-size: 30px;
+            background-color: #FFC30B;
+            max-width: max-content;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 1em;
+            padding: 20px;
+            border-radius: 30px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        /*    margin-top: 20px;
+            padding: 20px;*/
+        }
+        
+        .child {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border: 5px solid #ddd;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #E8AC41;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .child:hover {
+            transform: scale(1.05);
+        }
+        
+        .child img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .child a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .child p {
+            color: #666;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="mt-2 mb-2">Available Channels</h1>
+    
+    <h2 class="head2">Select the Channel you want to dive in</h2>
+    
+    <div class="container">
+        {% for group_name, group_image , group_description , group_link in groups_with_images %}
+        <div class="child">
+            <a href="{{ group_link }}"><label>
+                <img src="{{ group_image }}" alt="{{ group_name }} Image"><br>
+                <a href="{{ group_link }}">{{ group_name }}</a>
+                <div>
+                    <p>{{ group_description }}</p>
+                </div>
+            </label>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+</body>
+
+</html>
